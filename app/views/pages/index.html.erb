@@ -1,7 +1,9 @@
 <% if current_user %>
   <h1>Welcome, <%= current_user.name %></h1>
+  <%= image_tag "data:image/png;base64,#{@img}" %>
 <% else %>
   <h1>This is the index page</h1>
   <%= link_to 'Login', new_user_session_path %><br>
+  <%= link_to 'Register', new_user_path %><br>
 <% end %>
 <%= link_to 'Secret page', '/pages/anya' %>
