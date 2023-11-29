@@ -1,13 +1,14 @@
-<%= image_tag "data:image/png;base64,#{@img}", style: "width:30%; height:30%" %>
+
 <% if current_user %>
   <h1>Ohayaimasu, <%= current_user.name %></h1>
+  <%= image_tag "data:image/png;base64,#{@img}", class: "styled-image" %>
+  <p class="styled-paragraph">
   <% @anyas.each do |anya| %>
-    <p><%= anya %></p><br>
+    <%= anya %>
+    <br>
   <% end %>
-  <%= link_to 'Log out', user_session_path(current_user), data: {turbo_method: :delete} %><br>
+  </p><br>
 <% else %>
   <h1>Yororosu onegaisurumasu - Anya</h1>
-  <%= link_to 'Login', new_user_session_path %><br>
-  <%= link_to 'Register', new_user_path %><br>
+  <%= image_tag "data:image/png;base64,#{@img}", class: "styled-image" %>
 <% end %>
-<%= link_to 'Secret page', '/pages/anya' %>

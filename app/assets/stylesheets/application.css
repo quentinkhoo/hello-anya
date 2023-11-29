@@ -13,3 +13,129 @@
  *= require_tree .
  *= require_self
  */
+
+ nav {
+  background-color: #fab3ad;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+nav li {
+  float: left;
+  font-weight: bold;
+}
+
+nav li a {
+  display: block;
+  color: #2c2827;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: 	#8da99b;
+}
+
+nav::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+li.right {
+  float: right;
+}
+
+.form-container {
+  width: 300px;
+  padding: 16px;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid grey;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.styled-image {
+  width: 50%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+ }
+ 
+ .styled-image:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+ }
+
+ .styled-paragraph {
+  color: #333; 
+  font-size: 18px; 
+  line-height: 1.6; 
+  text-align: justify; 
+  padding: 10px; 
+  background-color: #f8f8f8; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+ }
+
+ .alert {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+ }
+ 
+ .alert-notice {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+ }
+ 
+ .alert-alert {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+ }
+
+ * {
+  font-family: Arial, sans-serif; 
+ }
