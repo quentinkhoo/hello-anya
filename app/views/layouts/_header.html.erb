@@ -1,7 +1,9 @@
 <nav>
   <ul>
     <li><a href="/">Home</a></li>
+    <% if is_anya %>
     <li><a href="/pages/anya">Secret Page</a></li>
+    <% end %>
     <% if current_user %>
       <li class='right'><%= link_to 'Log out', user_session_path(current_user), data: {turbo_method: :delete} %></li>
     <% else %>
