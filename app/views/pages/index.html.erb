@@ -1,14 +1,12 @@
+<%= image_tag "data:image/png;base64,#{@img}", style: "width:30%; height:30%" %>
 <% if current_user %>
-  <h1>Welcome, <%= current_user.name %></h1>
-  <%= image_tag "data:image/png;base64,#{@img}", style: "width:30%; height:30%" %>
+  <h1>Ohayaimasu, <%= current_user.name %></h1>
   <% @anyas.each do |anya| %>
-    <tr>
-      <td><%= anya %></td>
-    </tr>
+    <p><%= anya %></p><br>
   <% end %>
   <%= link_to 'Log out', user_session_path(current_user), data: {turbo_method: :delete} %><br>
 <% else %>
-  <h1>This is the index page</h1>
+  <h1>Yororosu onegaisurumasu - Anya</h1>
   <%= link_to 'Login', new_user_session_path %><br>
   <%= link_to 'Register', new_user_path %><br>
 <% end %>
