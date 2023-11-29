@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found_method
-    render plain: '404 page not found', status: 404
+    render :file => "#{Rails.root}/public/404.html", layout: false, status: 404
   end
 end
