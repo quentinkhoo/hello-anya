@@ -102,11 +102,11 @@ input[type="submit"]:hover {
   padding: 5px;
  }
  
- .styled-image:hover {
+.styled-image:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
  }
 
- .styled-paragraph {
+.styled-paragraph {
   color: #333; 
   font-size: 18px; 
   line-height: 1.6; 
@@ -117,25 +117,44 @@ input[type="submit"]:hover {
   border-radius: 4px; 
  }
 
- .alert {
+.alert {
   padding: 20px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
  }
  
- .alert-notice {
+.alert-notice {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
  }
  
- .alert-alert {
+.alert-alert {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
  }
 
- * {
-  font-family: Arial, sans-serif; 
- }
+table {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+}
+
+* {
+font-family: Arial, sans-serif; 
+}
