@@ -1,0 +1,84 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: forger
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: yor-forger
+  namespace: forger
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: yor-role
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: spy-secrets
+subjects:
+  - kind: ServiceAccount
+    name: yor-forger
+    namespace: forger
+roleRef:
+  kind: ClusterRole
+  name: yor-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-anya
+  namespace: forger
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-anya
+  template:
+    metadata:
+      labels:
+        app: hello-anya
+    spec:
+      serviceAccountName: yor-forger
+      containers:
+      - name: hello-anya
+        image: hello-anya
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        env:
+          - name: RAILS_ENV
+            value: "test"
+          - name: ANYA_PASSWORD
+            value: "REDACTED"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-anya-service
+  namespace: forger
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 3000
+    nodePort: 31337
+  selector:
+    app: hello-anya
+---
+apiVersion: v1
+kind: Secret
+metadata: 
+  name: kumo-secret
+  namespace: forger-secrets
+type: Opaque
+data:
+  aws_access_key_id: UkVEQUNURUQ=
+  aws_access_key_secret: UkVEQUNURUQ=
