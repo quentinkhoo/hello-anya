@@ -63,6 +63,10 @@ spec:
             value: "test"
           - name: ANYA_PASSWORD
             value: "REDACTED"
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "/rails/bin/rails db:migrate && /rails/bin/rails db:seed"]
 ---
 apiVersion: v1
 kind: Service
