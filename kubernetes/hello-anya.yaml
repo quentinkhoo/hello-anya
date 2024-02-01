@@ -86,6 +86,6 @@ metadata:
   namespace: forger
 type: Opaque
 data:
-  ascenda_flag_1: UkVEQUNURUQK
+  ascenda_flag_2: UkVEQUNURUQK
   aws_access_key_id: UkVEQUNURUQK
   aws_access_key_secret: UkVEQUNURUQK
